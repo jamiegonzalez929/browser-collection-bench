@@ -1,0 +1,21 @@
+{
+  "name": "browser-collection-bench",
+  "summary": "A local-first static benchmark explorer for common JavaScript collection tasks. It generates deterministic datasets in the browser, compares multiple implementation strategies, and visualizes the timing results so everyday performance tradeoffs are easier to inspect and share.",
+  "category": "benchmark",
+  "tech_stack": [
+    "HTML",
+    "CSS",
+    "JavaScript (ES modules)",
+    "Node.js test runner",
+    "Python http.server"
+  ],
+  "test_commands": [
+    "npm test"
+  ],
+  "run_commands": [
+    "npm start"
+  ],
+  "github_repo": "",
+  "github_url": "",
+  "pages_url": ""
+}

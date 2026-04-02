@@ -1,0 +1,261 @@
+:root {
+  --bg: #f4efe6;
+  --panel: rgba(255, 250, 242, 0.88);
+  --panel-border: rgba(92, 70, 40, 0.12);
+  --text: #1f1a14;
+  --muted: #665847;
+  --accent: #c4572f;
+  --accent-2: #2f6f62;
+  --accent-3: #d8a53a;
+  --shadow: 0 18px 40px rgba(88, 57, 24, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(212, 165, 58, 0.18), transparent 30%),
+    radial-gradient(circle at top right, rgba(47, 111, 98, 0.18), transparent 35%),
+    linear-gradient(180deg, #fcf8f2 0%, var(--bg) 100%);
+  min-height: 100vh;
+}
+
+.page-shell {
+  width: min(1100px, calc(100vw - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+}
+
+.hero {
+  padding: 1rem 0 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-2);
+  font-size: 0.8rem;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 4.8rem);
+  line-height: 0.95;
+  max-width: 10ch;
+  margin-bottom: 1rem;
+}
+
+.hero-copy {
+  max-width: 60ch;
+  font-size: 1.08rem;
+  color: var(--muted);
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+  border-radius: 24px;
+  padding: 1.25rem;
+  backdrop-filter: blur(16px);
+  margin-bottom: 1.25rem;
+}
+
+.control-grid,
+.layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.control-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+label span {
+  display: block;
+  font-size: 0.92rem;
+  margin-bottom: 0.35rem;
+  color: var(--muted);
+}
+
+label select,
+label input {
+  width: 100%;
+}
+
+select,
+input,
+button {
+  font: inherit;
+}
+
+select,
+input[type="range"] {
+  accent-color: var(--accent);
+}
+
+output {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: var(--accent-2);
+}
+
+.action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.75rem;
+}
+
+button {
+  border: 0;
+  background: linear-gradient(135deg, var(--accent), #de7c42);
+  color: white;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(196, 87, 47, 0.2);
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.status {
+  color: var(--muted);
+  margin: 0;
+}
+
+.layout {
+  grid-template-columns: 2fr 1fr;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.chart {
+  display: grid;
+  gap: 0.85rem;
+  min-height: 220px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 110px;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.bar-track {
+  background: rgba(47, 111, 98, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+  height: 1rem;
+}
+
+.bar-fill {
+  background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
+  height: 100%;
+  border-radius: inherit;
+  transform-origin: left center;
+  animation: reveal 480ms ease;
+}
+
+.summary-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.summary-list div {
+  padding: 0.85rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 18px;
+}
+
+.summary-list dt {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-bottom: 0.25rem;
+}
+
+.summary-list dd {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.8rem 0.4rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(92, 70, 40, 0.12);
+}
+
+th {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+@keyframes reveal {
+  from {
+    transform: scaleX(0.2);
+    opacity: 0.5;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 780px) {
+  .page-shell {
+    width: min(100vw - 1rem, 100%);
+    padding-top: 1.5rem;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .action-row,
+  .section-heading,
+  .bar-row {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .bar-row {
+    gap: 0.3rem;
+  }
+}
